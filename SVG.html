@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+	<title>Visualisation D3js</title>
+	<meta charset="utf-8">
+	<style>
+	</style>
+</head>
+<body>
+	<center><h2>Ma premi&egrave;re visualisation D3js</h2></center>
+<script src="d3.js"></script>
+
+<script>
+
+//Ci dessous le code D3js pour créer une ligne
+var svg = d3.select("body").append("svg")
+.attr("width",800)
+.attr("height",600)
+
+var jsonLine = [{"x1":140, "y1":80, "x2":290, "y2":80, "color":"yellow"}];
+var ligne = svg.selectAll("line")
+.data(jsonLine)
+.enter()
+.append("line");
+
+var lineAttributes = ligne
+.attr("x1",function(d){return d.x1;})
+.attr("x2",function(d){return d.x2;})
+.attr("y1",function(d){return d.y1;})
+.attr("y2",function(d){return d.y2;})
+.attr("stroke-width",5)
+.attr("stroke",function(d){return d.color});
+
+//Ci dessous le code D3js pour créer un rectangle
+var jsonRect = [{"x":30, "y":50, "width":100, "height":100, "color":"green"}];
+var rect = svg.selectAll("rect")
+.data(jsonRect)
+.enter()
+.append("rect");
+
+var rectAttributes = rect
+.attr("x",function(d){return d.x;})
+.attr("y",function(d){return d.x;})
+.attr("height",function(d){return d.height;})
+.attr("width",function(d){return d.width;})
+.attr("fill",function(d){return d.color});
+
+//Ci dessous le code D3js pour créer un cercle
+var jsonCerc = [{"x":350, "y":80, "radius":50, "color":"red"}];
+var cerc = svg.selectAll("circle")
+.data(jsonCerc)
+.enter()
+.append("circle");
+
+var cercAttributes = cerc
+.attr("cx",function(d){return d.x;})
+.attr("cy",function(d){return d.y;})
+.attr("r",function(d){return d.radius;})
+.attr("fill",function(d){return d.color});
+
+d3.selectAll("h2").style("color", "orange"); 
+d3.selectAll("body").style("background-color", "lightyellow"); 
+
+</script>
+<center><h3><a href="test.html" target="blank">Retourner &agrave; la visualisation SVG</a></center></h3>
+
+</body>
