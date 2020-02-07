@@ -1,0 +1,52 @@
+
+<html>
+	<head>
+	<title>Visualisation SVG</title>
+	<script src="d3.js"></script>
+	</head>
+<body>
+	<center><h2> Ma premi&egrave;re visualisation SVG</h2></center>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height = "610" width = "8000">
+
+	// ci dessous le code svg pour créer un rectangle
+  	<rect x="250" y="25" width="120" height="125" fill="yellow" stroke-width="4" stroke="yellow" />
+
+	// ci dessous le code svg pour créer un cercle
+	<circle cx="500" cy="90" r="60" fill="red" />
+
+	// ci dessous le code svg pour créer un poli-ligne
+ 	<polyline points="150,400 200,300 240,400 280,320 320,400 400,250" stroke="purple" stroke-width="3" fill="none" />
+
+ 	// ci dessous le code svg pour créer un polygone avec le poli-line
+ 	<polyline points="500,400 480,300 560,240 640,300 620,400 500,400" stroke="green" stroke-width="3" fill="#FFF3F3"/>
+
+	// ci dessous le code svg pour créer une ligne
+  	<line x1="50" y1="150" x2="180" y2="50" stroke="green" stroke-width="3" />
+
+	// ci dessous le code svg pour créer un polygone
+	<polygon points="620,150 680,20 740,150" fill="blue" />
+
+	// ci dessous le code svg pour créer une ellipse
+	<ellipse cx="800" cy="350" rx="80" ry="50" fill="pink" />
+
+	// ci dessous le code svg pour ajouter du texte
+	<text x="100" y="17">LIGNE</text>
+	<text x="270" y="17">RECTANGLE</text>
+	<text x="460" y="17">CERCLE</text>
+	<text x="640" y="17">TRIANGLE</text>
+	<text x="200" y="450">POLI-LIGNE</text>
+	<text x="520" y="450">POLYGONE</text>
+	<text x="760" y="450">ELLIPSE</text>
+	<text x="1000" y="600">Abdoulaye D. BA</text>
+	<center><h3><a href="svg.html" target="blank">Passer &agrave; la visualisation D3js</a></center></h3>
+</svg>
+
+
+<script>
+	// ci dessous le code D3js pour changer la couleur de h2
+	d3.selectAll("h2").style("color", "orange"); 
+	d3.selectAll("body").style("background-color", "lightyellow"); 
+</script>
+
+</body>
+</html>
