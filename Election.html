@@ -1,0 +1,123 @@
+	<!DOCTYPE html>
+	<html>
+
+	
+	<head>
+	<meta charset="utf-8">
+	<style>
+	.axis{
+	font:10px sans-serif;
+	fill:none;
+	stroke:#000;
+	shape-rendering : crispEdges;
+	}
+
+	</style>
+	</head>
+	
+	<body>
+		<h2><center>Elections pr&eacute;sidentielles au S&eacute;n&eacute;gal</center></h2>
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height = "100" width = "8000">
+
+	// ci dessous le code svg pour créer une légende
+  	<rect x="1000" y="25" width="50" height="25" fill="purple" stroke-width="1" stroke="purple" opacity:0.5 />
+	<rect x="920" y="25" width="50" height="25" fill="red" stroke-width="1" stroke="red" opacity:0.5 />
+	<rect x="840" y="25" width="50" height="25" fill="green" stroke-width="1" stroke="green" opacity:0.5 />
+	<rect x="760" y="25" width="50" height="25" fill="orange" stroke-width="1" stroke="orange" opacity:0.5 />
+	<rect x="680" y="25" width="50" height="25" fill="blue" stroke-width="1" stroke="blue" opacity:0.5 />
+	<text x="990" y="65">M. NIANG</text>
+	<text x="920" y="65">I. SALL</text>
+	<text x="830" y="65">O. SONKO</text>
+	<text x="760" y="65">I. SECK</text>
+	<text x="680" y="65">M. SALL</text>
+</svg>
+
+	
+	<script src="d3.js"></script>
+
+	
+	<script>
+	d3.selectAll("h2").style("color", "orange"); 
+	d3.selectAll("body").style("background-color", "lightyellow"); 
+	//Parametrage des dimensions
+	var margin = {top:0, right:20, bottom:70, left:140},
+	width = 600, height = 600;
+	
+	//Mise en place du cadre de dessin
+	var svg = d3.select("body").append("svg")
+	.attr("width",width + margin.left + margin.right)
+	.attr("height",height + margin.top + margin.bottom)
+	.append("g")
+	.attr("transform","translate(" + margin.left + "." + margin.top + ")");
+	
+	
+	
+	var election = 
+	[{"candidat":1, "nom":"Macky Sall", "part":58.26},
+	{"candidat":2, "nom":"Idrissa Seck", "part":20.51},
+	{"candidat":3, "nom":"Ousmane Sonko", "part":15.67},
+	{"candidat":4, "nom":"Issa Sall", "part":4.07},
+	{"candidat":5, "nom":"Madicke Niang", "part":1.48}];
+	
+	
+	//Mise en place des axes
+	var x = d3.scale.ordinal()
+	.rangeRoundBands([0,width],0.10);
+	
+	var y = d3.scale.linear()
+	.range([height,0]);
+	
+	var xAxis = d3.svg.axis()
+	.scale(x)
+	.orient("bottom");
+	
+	var yAxis = d3.svg.axis()
+	.scale(y)
+	.orient("left")
+	.ticks(10);
+	
+	election.forEach(function(d){
+		d.candidat = d.candidat;
+		d.part = +d.part;
+	});
+
+	x.domain(election.map(function(d){return d.nom;}));
+	y.domain([0,d3.max(election, function(d){return d.part;})]);
+	
+	svg.append("g")
+	.attr("class","x axis")
+	.attr("transform","translate(0,"+height+")")
+	.call(xAxis);
+	
+	svg.append("g")
+	.attr("class","y axis")
+	.call(yAxis)
+	.append("text")
+      .attr("transform", "rotate(0)")
+      .attr("x", 0)
+      .attr("y", 260)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .style("stroke","orange")
+      .text(" TENDANCES ELECTION");
+	
+	
+	//Representation des données en bande et variation des couleurs
+	colors = d3.scale.category10()
+	var group = svg.append("g");
+	group.selectAll("bar")
+	.data(election)
+	.enter()
+	.append("rect")
+	.attr("class","bar")
+	.attr("x",function(d){return x(d.nom);})
+	.attr("width",x.rangeBand())
+	.attr("y",function(d){return y(d.part);})
+	.attr("height",function(d){return height - y(d.part);})
+	.attr("fill",function(d,i){return colors(i)});
+
+	</script>
+	
+	</body>
+</html>
+
