@@ -1,0 +1,60 @@
+
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+       <link href="style.css" rel="stylesheet" type="text/css">
+      <script src="../script/d3.js"></script>
+      <title>Formes SVG</title>
+    </head>
+  <style></style>
+  
+  <body>
+  <svg width="6400" height="1000">
+   <g>
+    <title>Dessin sur SVG</title>
+    <rect id="svg_1" height="49" width="68" y="103" x="110" stroke-width="3" stroke="#000000" fill="#000000"/>
+    <rect id="svg_2" height="70" width="107" y="103" x="214" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <rect id="svg_3" height="53" width="76" y="103" x="371" stroke-width="4" stroke="#000000" fill="#000000"/>
+    <ellipse ry="50" rx="71" id="svg_4" cy="269" cx="80" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <ellipse ry="45" rx="66" id="svg_5" cy="269" cx="250" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <ellipse ry="40" rx="61" id="svg_6" cy="269" cx="420" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <ellipse ry="35" rx="56" id="svg_7" cy="269" cx="590" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <ellipse ry="30" rx="51" id="svg_8" cy="269" cx="760" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <ellipse ry="25" rx="46" id="svg_9" cy="269" cx="900" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <ellipse ry="20" rx="41" id="svg_10" cy="269" cx="1050" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <ellipse ry="15" rx="36" id="svg_11" cy="269" cx="1180" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <ellipse ry="10" rx="31" id="svg_12" cy="269" cx="1300" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <ellipse ry="5"  rx="26" id="svg_13" cy="269" cx="1400" stroke-width="5" stroke="#000000" fill="#000000"/>
+    <line id="svg_14" y2="565" x2="125" y1="465" x1="125"  stroke="#000000" fill="none"/>
+    <line id="svg_15" y2="457" x2="125" y1="365" x1="250"  stroke="#000000" fill="none"/>
+    <line id="svg_16" y2="365" x2="125" y1="457" x1="250"  stroke="#000000" fill="none"/>
+    <line id="svg_17" y2="365" x2="125" y1="365" x1="250"  stroke="#000000" fill="none"/>
+    <line id="svg_18" y2="457" x2="125" y1="457" x1="250"  stroke="#000000" fill="none"/>
+    <line id="svg_19" y2="565" x2="250" y1="465" x1="250"  stroke="#000000" fill="none"/>
+    <line id="svg_20" y2="565" x2="125" y1="565" x1="250"  stroke="#000000" fill="none"/>
+    <line id="svg_21" y2="565" x2="165" y1="500" x1="165"  stroke="#000000" fill="none"/>
+    <line id="svg_22" y2="565" x2="210" y1="500" x1="210"  stroke="#000000" fill="none"/>
+    <line id="svg_22" y2="500" x2="165" y1="500" x1="210"  stroke="#000000" fill="none"/>
+    <text text-anchor="middle" font-family="serif" font-size="24" id="svg_28" y="31" x="339" stroke-width="0" stroke="#000000" fill="#000000">Salut les amis du MSDA. Effacez moi!</text>
+    
+   </g>
+
+   
+  </svg>
+
+  <script>
+  // ci dessous le code D3js pour manipuler le DOM
+  d3.selectAll("ellipse").style("fill", "blue"); 
+  d3.selectAll("rect").style("stroke-width", "2");
+  d3.selectAll("rect").style("fill", "pink");
+  d3.select(svg_1).style("fill", "blue");
+  d3.select(svg_2).style("stroke", "orange");
+  d3.select("text").remove();
+  d3.select("svg").style("background-color","grey");
+  colors = d3.scale.category10()
+  .attr("stroke",colors(4));
+</script>
+  
+  </body>
+ 
+  </html>
