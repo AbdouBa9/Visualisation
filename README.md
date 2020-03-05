@@ -1,2 +1,2 @@
 # Visualisation
-Je partage avec vous mes premiers projets en visualisation
+Le projet et des exercices de visualisation
